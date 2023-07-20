@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Shaking Text</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="shaking-text" onclick="goToAnotherPage()">Help!</div>
+
+   <div style="height: 2000px; background-color: rgb(243, 236, 236);">
+    <h1>Scroll down with your mousewheel</h1>
+    <p>Scroll down and the page will move to the bottom</p>
+</div>
+
+
+   <script>
+       function goToAnotherPage() {
+           // ここに別のページへの遷移処理を追加します
+           // 例えば、以下のように別のページに遷移させる場合
+           window.location.href = "page1.html";
+       }
+    </script>
+    <script>
+     function handleMouseWheel(event) {
+        const isScrollingDown = event.deltaY > 0;
+        const scrollSpeed = 20; // Adjust the scroll speed here
+
+        if (isScrollingDown) {
+            event.preventDefault(); // Prevent the default scroll behavior
+            const currentPosition = window.pageYOffset;
+            const targetPosition = currentPosition + scrollSpeed;
+            window.scrollTo(0, targetPosition);
+        }
+    }
+           // Attach event listener to handle mousewheel events
+           document.addEventListener('mousewheel', handleMouseWheel);
+   </script>
+</body>
+</html>
+
+
